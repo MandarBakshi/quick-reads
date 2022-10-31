@@ -1,0 +1,72 @@
+<!-- <mat-toolbar>
+  <div fxLayoutAlign="space-between center" fxFlexFill>
+    <div>
+      <span>Text Tools</span>
+      <a mat-button color="primary" routerLink="features">Features</a>
+      <a mat-button color="primary" routerLink="/about">About</a>
+      <a mat-button color="primary">Contact</a>
+      <a mat-button color="primary">
+        <mat-icon>link</mat-icon>GitHub Source
+      </a>
+    </div>
+
+    <div>
+      <a mat-button color="primary" routerLink="auth/register">Register</a>
+      <a mat-button color="primary" routerLink="auth/login">Login</a>
+    </div>
+  </div>
+</mat-toolbar> -->
+
+
+<mat-toolbar>
+  <mat-toolbar-row *ngIf="isMobile === false">
+    <div fxLayoutAlign="space-between center" fxFlexFill>
+      <div>
+        <a mat-button routerLink=""><h1>Text Tools</h1></a>
+        <a mat-button color="primary" routerLink="/features">Features</a>
+        <a mat-button color="primary" routerLink="/about">About</a>
+        <a mat-button color="primary">Contact</a>
+        <a mat-button color="primary" href="https://github.com/MandarBakshi"><mat-icon>link</mat-icon>GitHub Source</a>
+      </div>
+      <div>
+        <a mat-button color="primary" routerLink="/auth/login">Login</a>
+      </div>
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row *ngIf="isMobile === true">
+    <div fxLayoutAlign="space-between center" fxFlexFill>
+      <a mat-button routerLink=""><h1>Text Tools</h1></a>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+        <mat-menu #menu="matMenu">
+          <a mat-menu-item routerLink="/features">
+            <mat-icon>star</mat-icon>
+            <span>Features</span>
+          </a>
+          <a mat-menu-item routerLink="/about">
+            <mat-icon>sentiment_very_satisfied</mat-icon>
+            <span>About</span>
+          </a>
+          <a mat-menu-item routerLink="/contact">
+            <mat-icon>support_agent</mat-icon>
+            <span>Contact</span>
+          </a>
+          <a mat-menu-item href="https://github.com/MandarBakshi">
+            <mat-icon>link</mat-icon>
+            <span>GitHub Source</span>
+          </a>
+          
+          <a mat-menu-item routerLink="auth/login">
+            <mat-icon>login</mat-icon>
+            <span>Login</span>
+          </a>
+        </mat-menu>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="material-container">
+  <router-outlet></router-outlet>
+</div>

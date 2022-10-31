@@ -1,0 +1,31 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-evenly start" fxLayoutGap = 'grid'>
+    <div fxFlex.xs="90%" fxFlex.sm="70%" fxFlex.md="45%" fxFlex.lg="35%">
+        <mat-card class="material-card" *ngIf="demoForm">
+            <mat-card-header>Original Text</mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="demoForm" (ngSubmit)="demoSubmit()">
+                    <mat-form-field class="material-input-field">
+                        <mat-label>Text</mat-label>
+                        <textarea matInput rows="10" formControlName="textInput"></textarea>
+                    </mat-form-field>
+                    <mat-form-field class="material-input-field">
+                        <mat-label>Length (%)</mat-label>
+                        <input type="text" matInput formControlName="length">
+                    </mat-form-field>
+                    <mat-divider></mat-divider>
+                    <button mat-flat-button color="primary" type="submit">Generate</button>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div fxFlex.xs="90%" fxFlex.sm="70%" fxFlex.md="45%" fxFlex.lg="35%">
+        <mat-card class="material-card">
+            <mat-card-header>Summarized Text</mat-card-header>
+            <mat-card-content>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus sed quaerat magnam. Aperiam dicta nesciunt nulla quisquam dolores aut mollitia dolor ullam dolorem cum eveniet fugit velit quos ab accusamus assumenda itaque corporis, libero id! Distinctio ratione illo nisi deleniti, nobis tempore eligendi porro asperiores iusto in quas suscipit repellendus dolor repellat minus, nulla quo id! Incidunt dolores adipisci nesciunt, iure ut earum accusantium non. Tenetur consequatur explicabo aperiam temporibus accusantium facere quidem, iste ratione animi veritatis ut impedit, voluptatum veniam ipsa? Sint dolore unde earum optio ullam dolorum iusto quae, amet tempore magni dolorem possimus asperiores nulla facilis harum pariatur hic voluptates esse corrupti inventore doloribus nemo perspiciatis natus expedita. Sint ipsa vitae perferendis facilis molestias culpa enim dolorum?
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

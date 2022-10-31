@@ -1,0 +1,61 @@
+<!-- <div fxLayout="row wrap" fxLayoutAlign="space-evenly start" fxLayoutGap = 'grid'>
+    <div fxFlex.xs="90%" fxFlex.sm="70%" fxFlex.md="45%" fxFlex.lg="35%">
+        <div>
+            <form>
+            <mat-card class="material-card">
+                <mat-card-header>
+                    <mat-card-title>Original Text</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                        <mat-form-field appearance="outline" class="material-input-field">
+                            <mat-label>Text</mat-label>
+                            <textarea matInput rows="10" formControlName="textInput"></textarea>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline" class="material-input-field">
+                            <mat-label>Length (%)</mat-label>
+                            <input type="text" matInput formControlName="length">
+                        </mat-form-field>
+                    </mat-card-content>
+                    <mat-card-actions align="end">
+                        <button mat-flat-button color="primary" type="submit">Generate</button>
+                    </mat-card-actions>
+                </mat-card>
+            </form>
+        </div>
+    </div>
+
+    <div fxFlex.xs="90%" fxFlex.sm="70%" fxFlex.md="45%" fxFlex.lg="35%">
+        <mat-card class="material-card">
+            <mat-card-header>
+                <mat-card-title>Summarized Text</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus sed quaerat magnam. Aperiam dicta nesciunt nulla quisquam dolores aut mollitia dolor ullam dolorem cum eveniet fugit velit quos ab accusamus assumenda itaque corporis, libero id! Distinctio ratione illo nisi deleniti, nobis tempore eligendi porro asperiores iusto in quas suscipit repellendus dolor repellat minus, nulla quo id! Incidunt dolores adipisci nesciunt, iure ut earum accusantium non. Tenetur consequatur explicabo aperiam temporibus accusantium facere quidem, iste ratione animi veritatis ut impedit, voluptatum veniam ipsa? Sint dolore unde earum optio ullam dolorum iusto quae, amet tempore magni dolorem possimus asperiores nulla facilis harum pariatur hic voluptates esse corrupti inventore doloribus nemo perspiciatis natus expedita. Sint ipsa vitae perferendis facilis molestias culpa enim dolorum?
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div> -->
+
+<div fxLayout="row wrap" fxLayoutAlign="start start">
+    <div fxFlex.xs="90%" fxFlex.gt-xs="30%">
+        <mat-form-field appearance="outline">
+            <mat-label>Choose Input Type</mat-label>
+            <mat-select [(value)]='selectedInputType'>
+                <mat-option value="text">Text</mat-option>
+                <mat-option value="pdf">PDF</mat-option>
+                <mat-option value="url">URL</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+
+<div *ngIf="selectedInputType === 'text'">
+    <app-text-input></app-text-input>
+</div>
+<div *ngIf="selectedInputType === 'pdf'">
+    <app-pdf-input></app-pdf-input>
+</div>
+<div *ngIf="selectedInputType === 'url'">
+    <app-url-input></app-url-input>
+</div>
