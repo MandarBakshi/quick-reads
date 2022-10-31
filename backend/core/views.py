@@ -1,3 +1,4 @@
+import uuid
 from flask import Blueprint, render_template, url_for, request, jsonify
 import os
 from werkzeug.utils import secure_filename
@@ -9,10 +10,18 @@ def SummarizationPDF():
     if request.method == 'POST':
         f = request.files['pdfInput']
         l = request.form.get('length')
-        filename = secure_filename(f.filename)  # type: ignore
+        # filename = secure_filename(f.filename)  # type: ignore
+
+        # save the file with a unique file name
+        filename = str(uuid.uuid4())
         f.save(os.path.join("core\\storage", filename))
+
         from core.Summarization.summarizerPDF import fGetSummaryPDF
         summary = fGetSummaryPDF(f"core\\storage\\{filename}", l)
+
+        # now delete the uploaded file
+        os.remove(os.path.join("core\\storage", filename))
+
         return jsonify(summary)
 
     

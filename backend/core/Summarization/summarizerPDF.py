@@ -16,9 +16,9 @@ def fGetSummaryPDF(path, length):
     # txtFile.close()
     txt1 = txt.strip()
     # print(txt1)
-    print("\n\npdf extracted... now generating summary\n\n")
+    # print("\n\npdf extracted... now generating summary\n\n")
     from core.Summarization.summarizerText import fGenarateSummary
     summary = fGenarateSummary(txt1, length)
-    print("summary generated...\n\n")
+    # print("summary generated...\n\n")
     # print(summary)
     return summary

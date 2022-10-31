@@ -1,16 +1,17 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-text-input',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.scss']
 })
-export class TextInputComponent implements OnInit {
+export class TextInputComponent implements OnInit, OnDestroy {
 
   textInputForm?: FormGroup;
-
+  textSub?: Subscription;
   result?: string;
   isLoading?: boolean;
 
@@ -33,11 +34,11 @@ export class TextInputComponent implements OnInit {
   TextInputSubmit() {
     this.isLoading = true;
     this.result = undefined;
-    console.log(this.textInputForm?.value);
-    this.api.GetSummaryText(this.textInputForm?.value).subscribe(
+    // console.log(this.textInputForm?.value);
+    this.textSub = this.api.GetSummaryText(this.textInputForm?.value).subscribe(
       {
         next: (res) => {
-          console.log(res);
+          // console.log(res);
           this.isLoading = false
           this.result = res;
         },
@@ -46,8 +47,8 @@ export class TextInputComponent implements OnInit {
     );
   }
 
-  // ngOnDestroy(): void {
-  //   this.api.GetSummaryText(this.textInputForm?.value).unsubscribe();
-  // }
+  ngOnDestroy(): void {
+    this.textSub?.unsubscribe();
+  }
 
 }

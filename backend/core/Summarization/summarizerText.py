@@ -191,7 +191,7 @@ def fGenarateSummary(text_input,input_lines):
     # input_user = int(input('Percentage of information to retain(in percent):'))
     input_user = int(input_lines)
     no_of_sentences = int((input_user * len(tokenized_sentence))/100)
-    print("No of sentences - ", no_of_sentences)
+    # print("No of sentences - ", no_of_sentences)
     c = 1
 
     sentence_with_importance = {}
@@ -200,7 +200,7 @@ def fGenarateSummary(text_input,input_lines):
         sentence_with_importance[c] = sentenceimp
         c = c+1
     
-    print("phase 2 done...")
+    # print("phase 2 done...")
 
     sentence_with_importance = sorted(sentence_with_importance.items(), key=operator.itemgetter(1),reverse=True)
     cnt = 0
@@ -217,14 +217,14 @@ def fGenarateSummary(text_input,input_lines):
     sentence_no.sort()
     cnt = 1
 
-    print("phase 3 done...")
+    # print("phase 3 done...")
 
     for sentence in tokenized_sentence:
         if cnt in sentence_no:
             summary.append(sentence)
         cnt = cnt+1
 
-    print("phase 4 done...")
+    # print("phase 4 done...")
     summary = " ".join(summary)
     # print("\n")
     # print("Summary:")
@@ -232,5 +232,5 @@ def fGenarateSummary(text_input,input_lines):
     # outF = open('summary.txt',"w")
     # outF.write(summary)
 
-    print("phase 5 done...")
+    # print("phase 5 done...")
     return summary
