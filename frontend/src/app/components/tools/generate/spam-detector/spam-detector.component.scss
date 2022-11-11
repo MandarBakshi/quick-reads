@@ -1,0 +1,33 @@
+.material-input-field {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.material-card {
+    margin: 15px;
+    padding: 15px;
+}
+
+.result-ham {
+    background-color: #6ab04c;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+}
+
+.result-spam {
+    background-color: #eb4d4b;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+}
+
+.badge {
+    border-radius: 4px;
+    background-color: #4834d4;
+    padding: 4px;
+    // margin-top: 60px;
+    // margin-bottom: 60px;
+    color: white
+}

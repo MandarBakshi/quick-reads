@@ -1,6 +1,7 @@
 import uuid
 from flask import Blueprint, render_template, url_for, request, jsonify
 import os
+import pickle
 from werkzeug.utils import secure_filename
 
 views = Blueprint('views', __name__)
@@ -45,7 +46,7 @@ def SummarizationText():
 
 
 
-@views.route('/api/tools/summarizer/url', methods=['GET', 'POST'])
+@views.route('/api/tools/summarizer/url', methods=['POST'])
 def SummarizationURL():
     if request.method == 'POST':
         urlInput = request.form.get('urlInput')
@@ -54,3 +55,21 @@ def SummarizationURL():
     return 'hello'
 
 
+
+@views.route('/api/tools/ml/models/spamdetection/', methods=['POST'])
+def DetectSpam():
+    if request.method == 'POST':
+        formData = request.get_json()
+        text = formData['text']
+        inputData = [text]
+
+        vectorizer = pickle.load(open('./core/models/VectorizerModel.model', 'rb'))
+        classifier = pickle.load(open('./core/models/SpamClassifierSimple.model', 'rb'))
+
+        inputData_converted = vectorizer.transform(inputData)
+        y = classifier.predict(inputData_converted)
+
+        return jsonify(str(y[0]))
+    
+    else:
+        return "you do not have access"

@@ -21,6 +21,7 @@ import { ExtractimageComponent } from './components/tools/generate/extractimage/
 import { PdfInputComponent } from './components/tools/generate/summarizer/pdf-input/pdf-input.component';
 import { TextInputComponent } from './components/tools/generate/summarizer/text-input/text-input.component';
 import { UrlInputComponent } from './components/tools/generate/summarizer/url-input/url-input.component';
+import { SpamDetectorComponent } from './components/tools/generate/spam-detector/spam-detector.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { UrlInputComponent } from './components/tools/generate/summarizer/url-in
     ExtractimageComponent,
     PdfInputComponent,
     TextInputComponent,
-    UrlInputComponent
+    UrlInputComponent,
+    SpamDetectorComponent
   ],
   imports: [
     BrowserModule,

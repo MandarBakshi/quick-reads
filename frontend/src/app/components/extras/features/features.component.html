@@ -4,7 +4,7 @@
             <mat-card-header>
                 <mat-card-title>Summarization</mat-card-title>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content class="content-size">
                 <p>Summarize big documents using various techniques.</p>
                 <p>You can summarize the documents of following types:</p>
                 <ul>
@@ -24,7 +24,7 @@
             <mat-card-header>
                 <mat-card-title>Converters</mat-card-title>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content class="content-size">
                 <p>Convert documents to various types</p>
                 <p>Available converters:</p>
                 <ul>
@@ -35,6 +35,20 @@
             </mat-card-content>
             <mat-card-actions align="end">
                 <a mat-flat-button color="primary" routerLink="tools/summarization">Let's GO</a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+    <div fxFlex.xs="90%" fxFlex.sm="40%" fxFlex.gt-sm="30%">
+        <mat-card class="material-card">
+            <mat-card-header>
+                <mat-card-title>Spam Detection</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="content-size">
+                <p>Helpful if you want to quickly check if an Email/SMS is genuine or not.</p>
+            </mat-card-content>
+            <mat-card-actions align="end">
+                <a mat-flat-button color="primary" routerLink="/tools/spamdetector">Let's GO</a>
             </mat-card-actions>
         </mat-card>
     </div>

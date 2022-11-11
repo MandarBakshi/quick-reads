@@ -8,6 +8,7 @@ import { FeaturesComponent } from './components/extras/features/features.compone
 import { PageNotFoundComponent } from './components/extras/page-not-found/page-not-found.component';
 import { HomeComponent } from './components/home/home.component';
 import { PdftotextComponent } from './components/tools/convert/pdftotext/pdftotext.component';
+import { SpamDetectorComponent } from './components/tools/generate/spam-detector/spam-detector.component';
 import { SummarizerComponent } from './components/tools/generate/summarizer/summarizer.component';
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'auth/register', component: RegisterComponent},
   {path: 'tools/summarizer', component: SummarizerComponent},
   {path: 'tools/pdftotext', component: PdftotextComponent},
+  {path: 'tools/spamdetector', component: SpamDetectorComponent},
 
   {path: '**', component: PageNotFoundComponent},
 ];
